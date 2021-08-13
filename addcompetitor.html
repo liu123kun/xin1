@@ -1,0 +1,175 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+	<head>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<title>参赛信息录入</title>
+		<link href="css/style.css" rel="stylesheet" type="text/css" />
+		<link href="css/select.css" rel="stylesheet" type="text/css" />
+		<script type="text/javascript" src="js/jquery.js"></script>
+		<script type="text/javascript" src="js/jquery.idTabs.min.js"></script>
+		<script type="text/javascript" src="js/select-ui.min.js"></script>
+		<script type="text/javascript" src="editor/kindeditor.js"></script>
+
+		<script type="text/javascript">
+			KE.show({
+				id: 'content7',
+				cssPath: './index.css'
+			});
+		</script>
+
+		<script type="text/javascript">
+			$(document).ready(function(e) {
+				$(".select1").uedSelect({
+					width: 345
+				});
+				$(".select2").uedSelect({
+					width: 167
+				});
+				$(".select3").uedSelect({
+					width: 100
+				});
+			});
+		</script>
+		<script>
+			function checktittle(){
+			var unname = document.getElementById("tittle").value;
+			var unnameTip = document.getElementById("tittleTip")
+			var reg = /^[\u4E00-\u9FA5][a-zA-Z]{2-30}$/;
+			if (!reg.test(unname)){
+				document.getElementById("tittleTip").innerHTML="请输入2-30个汉字和字母组合的题目";
+				document.getElementById("tittleTip").style="color:red"
+				
+			}else {
+				unnameTip.innerHTML=""
+			}
+			}
+		</script>
+		
+		<script>
+			function checkzz(){
+				var unname=document.getElementById("zz").value;
+				var unnameTip=document.getElementById("zzTip")
+				var reg=/^[\u4E00-\u9FA5]{2-6}$/;
+				if(!reg.test(unname)){
+					document.getElementById("zzTip").innerHTML="请输入2-6个汉字";
+					document.getElementById("zzTip").style="color:red"
+				}
+				else{
+					unname.innerText=""
+				}
+			}
+		</script>
+		
+		<script>
+			function checkzy(){
+				var unname=document.getElementById("zy").value;
+				var unnameTip=document.getElementById("zyTip")
+				var reg=/^[\u4E00-\u9FA5]{2-6}$/;
+				if(!reg.test(unname)){
+					document.getElementById("zyTip").innerHTML="请输入2-6个汉字";
+					document.getElementById("zyTip").style="color:red"
+				}
+				else{
+					unname.innerText=""
+				}
+			}
+		</script>
+		
+		<script>
+			function checkzdls(){
+				var unname=document.getElementById("zdls").value;
+				var unnameTip=document.getElementById("zdlsTip")
+				var reg=/^[\u4E00-\u9FA5]{2-6}$/;
+				if(!reg.test(unname)){
+					document.getElementById("zdlsTip").innerHTML="请输入2-6个汉字";
+					document.getElementById("zdlsTip").style="color:red"
+				}
+				else{
+					unname.innerText=""
+				}
+			}
+		</script>
+		
+	</head>
+
+	<body>
+
+		<div class="place">
+			<span>位置：</span>
+			<ul class="placeul">
+				<li>
+					<a href="#">首页</a>
+				</li>
+				<li>
+					<a href="#">参赛信息录入</a>
+				</li>
+			</ul>
+		</div>
+
+		<div class="formbody">
+
+			<div id="tab1" class="tabson">
+				<ul class="forminfo">
+			<li><label>竞赛类别<b>*</b></label>
+						<div class="vocation">
+							<select class="select3">
+								<option>明星赛</option>
+								<option>组合赛</option>
+								<option>集体赛</option>
+							</select>
+						</div>
+					</li>
+					
+					<li>
+						<label>年度<b>*</b></label>
+						<input name="Input" class="dfinput" style="width:345px;" />
+					</li>
+					
+					<li>
+						<label>题目<b>*</b></label>
+						<input onblur="checktittle()" id="tittle" placeholder="2-30个汉字字母组合" name="Input" class="dfinput" style="width:345px;" />
+					<i id="tittleTip"></i>
+					</li>
+					
+					<li>
+						<label>组长<b>*</b></label>
+						<input onblur="checkzz()" id="zz" placeholder="汉字2-6个" name="Input" class="dfinput" style="width:345px;" />
+					<i id="zzTip"></i>
+					</li>
+					
+					<li>
+						<label>组员<b>*</b></label>
+						<input onblur="checkzy()" id="zy" placeholder="汉字2-6个" name="Input" class="dfinput" style="width:345px;" />
+					<i id="zyTip"></i>
+					</li>
+					
+					<li><label>获奖等级<b>*</b></label>
+						<div class="vocation">
+						<cite>
+							<select class="select3">
+								<option>特等</option>
+								<option>一等</option>
+								<option>二等</option>
+								<option>三等</option>
+								<option>优秀奖</option>
+								<option selected="selected">无</option>
+							</select>
+						</cite>
+						</div>
+					</li>
+					
+					<li>
+						<label>指导老师<b>*</b></label>
+						<input onblur="checkzdls()" id="zdls" placeholder="汉字2-6个" name="teacher" type="text" class="dfinput" style="width:345px;" />
+					<i id="zdlsTip"></i>
+					</li>
+					
+					
+					<li><label>&nbsp;</label><input name="" type="button" class="btn" value="保存" /></li>
+				</ul>
+
+			</div>
+	</body>
+
+</html>
